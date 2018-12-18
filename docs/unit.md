@@ -2,7 +2,6 @@
 
 所有的测试任务均由测试单元组成,默认的一个测试单元由以下参数组成:
 
-[执行结果]: process_message.md
 [querySelector#selectors]: https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector#Parameters
 
 参数 | 类型 | 默认值 | 描述 
@@ -25,13 +24,12 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 <a name="task_type"></a>
 ## 单元类型
 - TaskType
-    - [TYPE_DATA](#type_data): 数据类,mysql/redis测试单元.([代码](../src/source/lib/unit/data.ts)|[测试用例](../src/test/unit/data.ts))
-    - [TYPE_DOM](#type_dom): DOM类,页面点击/输入等测试单元.([代码](../src/source/lib/unit/dom.ts)|[测试用例](../src/test/unit/dom.ts))
-        - React页面([React页面源码](https://codesandbox.io/s/2vrorqw12r)|[React测试用例](../src/test/unit/react_dom.ts))
-    - [TYPE_EVENT](#type_event): 事件类,页面请求/控制台等测试单元.([代码](../src/source/lib/unit/event.ts)|[测试用例](../src/test/unit/event.ts))
-    - [TYPE_TIME](#type_time): 时间类,休眠等测试单元.([代码](../src/source/lib/unit/time.ts)|[测试用例](../src/test/unit/time.ts))
-    - [TYPE_PAGE](#type_page): 页面类,加载/跳转/cookie等测试单元.([代码](../src/source/lib/unit/page.ts)|[测试用例](../src/test/unit/page.ts))
-    - [TYPE_UNION](#type_union): 联合类,处理多任务集合相关的类型.(该类型没有单独测试用例,请查看[创建任务](../src/test/task/create.ts)及[执行任务](../src/test/task/start.ts))
+    - [TYPE_DATA](#type_data): 数据类,mysql/redis测试单元.
+    - [TYPE_DOM](#type_dom): DOM类,页面点击/输入等测试单元.
+    - [TYPE_EVENT](#type_event): 事件类,页面请求/控制台等测试单元.
+    - [TYPE_TIME](#type_time): 时间类,休眠等测试单元.
+    - [TYPE_PAGE](#type_page): 页面类,加载/跳转/cookie等测试单元.
+    - [TYPE_UNION](#type_union): 联合类,处理多任务集合相关的类型.
 
 <a name="type_data"></a>
 ### TYPE_DATA
@@ -49,7 +47,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 - 参数说明:
     - sqlQuery: 查询语句
 - 返回数据
-    - [执行结果]: sql执行返回数据
+    - sql执行返回数据
 
 **配置示例**
 ```
@@ -70,7 +68,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 - 参数说明:
     - commands: 命令列表,详见[redis.multi](https://github.com/luin/ioredis#transaction)
 - 返回数据
-    - [执行结果]: redis执行返回数据
+    - redis执行返回数据
 
 **配置示例**
 ```
@@ -147,7 +145,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
     - selector: [querySelector#selectors]
     - attrName: 属性名称
 - 返回数据
-    - [执行结果]: 属性内容字符串
+    - 属性内容字符串
 
 **配置示例**
 ```
@@ -168,7 +166,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 - 参数说明:
     - selector: [querySelector#selectors]
 - 返回数据
-    - [执行结果]: HTML字符串
+    - HTML字符串
 
 **配置示例**
 ```
@@ -189,7 +187,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 - 参数说明:
     - selector: [querySelector#selectors]
 - 返回数据
-    - [执行结果]: 文本字符串
+    - 文本字符串
 
 **配置示例**
 ```
@@ -294,7 +292,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
     - timeout: 超时时间,毫秒
     - checkFunc: 校验是否符合监听规则
 - 返回数据
-    - [执行结果]: JSON化内容.注意,**非JSON请求会导致报错**
+    - JSON化内容或纯文本内容.
 
 **配置示例**
 ```
@@ -466,7 +464,7 @@ children<sup>[注3](#task_params_tip)</sup> | `string` | null | 子测试单元
 - 参数说明:
     - urls: 获取cookie的url列表,不传则为当前地址
 - 返回数据
-    - [执行结果]: [cookie列表](https://pptr.dev/#?product=Puppeteer&version=v1.7.0&show=api-pagecookiesurls)
+    - [cookie列表](https://pptr.dev/#?product=Puppeteer&version=v1.7.0&show=api-pagecookiesurls)
 
 **配置示例**
 ```
