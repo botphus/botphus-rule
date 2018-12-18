@@ -1,0 +1,60 @@
+{
+  "name": "@botphus/rule",
+  "version": "0.1.0",
+  "description": "Testing Rule management lib for botphus",
+  "main": "dist/source/index.js",
+  "types": "src/source/index.d.ts",
+  "directories": {
+    "test": "dist/test/"
+  },
+  "scripts": {
+    "prepublish": "npm run test",
+    "build": "npm run lint && tsc",
+    "commit": "npm run test",
+    "test": "npm run build && npm run test:cover",
+    "test:unit": "mocha ./dist/test/",
+    "test:cover": "nyc --reporter=lcov npm run test:unit",
+    "lint": "tslint -c tslint.json -p tsconfig.json"
+  },
+  "nyc": {
+    "exclude": [
+      "dist/test/**"
+    ]
+  },
+  "pre-commit": [
+    "commit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botphus/botphus-rule.git"
+  },
+  "keywords": [
+    "botphus",
+    "test",
+    "QTP",
+    "puppeteer"
+  ],
+  "author": "bakajinsei <cqggff@live.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/botphus/botphus-rule/issues"
+  },
+  "homepage": "http://www.botphus.org/",
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "@types/power-assert": "^1.5.0",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "pre-commit": "^1.2.2",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
+  },
+  "dependencies": {
+    "@types/node": "^10.9.4",
+    "espower-loader": "^1.2.2",
+    "power-assert": "^1.6.1"
+  }
+}

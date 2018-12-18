@@ -1,0 +1,16 @@
+# files
+.git
+*.log
+*.zip
+
+# folders
+node_modules/
+logs/
+coverage/
+.nyc_output/
+cache/
+*.log
+npm-debug.log.*
+
+# dist
+dist/
