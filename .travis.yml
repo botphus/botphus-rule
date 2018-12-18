@@ -1,0 +1,16 @@
+sudo: false
+language: node_js
+
+## Set ubuntu trusty
+dist: trusty
+
+## Set nodejs version
+node_js:
+  - 6
+  - 8
+  - stable
+
+script: npm run test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
