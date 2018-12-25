@@ -1,6 +1,6 @@
 {
   "name": "@botphus/rule",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Testing Rule management lib for botphus",
   "main": "dist/source/index.js",
   "types": "src/source/index.d.ts",
@@ -46,6 +46,7 @@
   "devDependencies": {
     "@types/mocha": "^5.2.5",
     "@types/power-assert": "^1.5.0",
+    "intelli-espower-loader": "^1.0.1",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
     "pre-commit": "^1.2.2",
@@ -54,7 +55,6 @@
   },
   "dependencies": {
     "@types/node": "^10.9.4",
-    "espower-loader": "^1.2.2",
     "power-assert": "^1.6.1"
   }
 }
