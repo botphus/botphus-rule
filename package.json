@@ -12,13 +12,25 @@
     "build": "npm run lint && tsc",
     "commit": "npm run test",
     "test": "npm run build && npm run test:cover",
-    "test:unit": "mocha ./dist/test/",
-    "test:cover": "nyc --reporter=lcov npm run test:unit",
+    "test:unit": "mocha ./src/test/index.test.ts",
+    "test:cover": "nyc npm run test:unit",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "include": [
+      "src/source/**/*.ts"
+    ],
     "exclude": [
-      "dist/test/**"
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov"
     ]
   },
   "pre-commit": [
@@ -55,6 +67,7 @@
   },
   "dependencies": {
     "@types/node": "^10.9.4",
-    "power-assert": "^1.6.1"
+    "power-assert": "^1.6.1",
+    "ts-node": "^7.0.1"
   }
 }
