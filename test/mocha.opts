@@ -1,3 +1,0 @@
-# Set mocha.opts only
-# test files please find in the folder "/dist/test/"
---require intelli-espower-loader

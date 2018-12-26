@@ -1,6 +1,6 @@
 {
   "name": "@botphus/rule",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Testing Rule management lib for botphus",
   "main": "dist/source/index.js",
   "types": "src/source/index.d.ts",
@@ -11,14 +11,27 @@
     "prepublish": "npm run test",
     "build": "npm run lint && tsc",
     "commit": "npm run test",
-    "test": "npm run build && npm run test:cover",
-    "test:unit": "mocha ./dist/test/",
-    "test:cover": "nyc --reporter=lcov npm run test:unit",
+    "test": "npm run build && npm run test:cover && npm run test:dist",
+    "test:unit": "mocha --require ts-node/register ./src/test/index.test.ts",
+    "test:cover": "nyc npm run test:unit",
+    "test:dist": "mocha --require intelli-espower-loader ./dist/test/index.test.js",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "nyc": {
+    "require": [
+      "ts-node/register"
+    ],
+    "include": [
+      "src/source/**/*.ts"
+    ],
     "exclude": [
-      "dist/test/**"
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "lcov"
     ]
   },
   "pre-commit": [
@@ -45,16 +58,15 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.18",
     "@types/power-assert": "^1.5.0",
     "intelli-espower-loader": "^1.0.1",
     "mocha": "^5.2.0",
     "nyc": "^13.0.1",
+    "power-assert": "^1.6.1",
     "pre-commit": "^1.2.2",
+    "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2"
-  },
-  "dependencies": {
-    "@types/node": "^10.9.4",
-    "power-assert": "^1.6.1"
   }
 }

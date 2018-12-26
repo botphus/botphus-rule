@@ -13,4 +13,4 @@ cache/
 npm-debug.log.*
 
 # dist
-# dist/
+dist/
