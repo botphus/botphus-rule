@@ -11,9 +11,10 @@
     "prepublish": "npm run test",
     "build": "npm run lint && tsc",
     "commit": "npm run test",
-    "test": "npm run build && npm run test:cover",
-    "test:unit": "mocha ./src/test/index.test.ts",
+    "test": "npm run build && npm run test:cover && npm run test:dist",
+    "test:unit": "mocha --require ts-node/register ./src/test/index.test.ts",
     "test:cover": "nyc npm run test:unit",
+    "test:dist": "mocha --require intelli-espower-loader ./dist/test/index.test.js",
     "lint": "tslint -c tslint.json -p tsconfig.json"
   },
   "nyc": {
